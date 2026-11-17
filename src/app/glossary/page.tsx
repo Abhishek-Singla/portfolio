@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import { Footer } from "@/components/Sections";
 import { glossary } from "@/data";
 import { ReadingTime } from "@/components/PageMeta";
+import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
   title: "Bharat Connect glossary | Abhishek Singla",
@@ -29,6 +30,7 @@ export default function Glossary() {
         <h1 className="serif mt-3 text-4xl font-semibold sm:text-5xl">Bharat Connect in plain language</h1>
         <p className="mt-4 text-[var(--muted)]">The terms I use most when writing about bill payments in India, explained for people outside payments.</p>
         <ReadingTime content={glossary} className="mt-3" />
+        <UpdatedStamp date="18 Nov 2026" className="mt-1" />
         <nav aria-label="Terms" className="mt-6 flex flex-wrap gap-2 text-xs">
           {glossary.map(([t]) => <a key={t} href={`#${slug(t)}`} className="rounded-full border border-[var(--line)] px-3 py-1 hover:border-[var(--accent)]">{t}</a>)}
         </nav>

@@ -88,6 +88,11 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           {w.skills.map((s) => <span key={s} className="rounded-full border border-[var(--line)] px-3 py-1 text-xs text-[var(--muted)]">{s}</span>)}
         </div>
 
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org", "@type": "CreativeWork", name: w.title, description: d?.context ?? w.problem,
+          creator: { "@type": "Person", name: "Abhishek Singla", sameAs: ["https://github.com/Abhishek-Singla"] },
+          keywords: w.skills.join(", "), about: w.tag, inLanguage: "en",
+        }) }} />
         <a href={`/work/${next.slug}`} className="mt-14 block rounded-3xl bg-[var(--ink)] p-6 text-[var(--paper)]">
           <p className="text-xs uppercase tracking-[0.18em] opacity-70">Next project</p>
           <p className="serif mt-2 text-xl font-semibold">{next.title}</p>

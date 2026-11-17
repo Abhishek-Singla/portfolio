@@ -1,0 +1,93 @@
+[
+ {
+  "n": 1,
+  "level": "Level 1: filtering, grouping, joins",
+  "q": "How many transactions are there in each status? Most common first",
+  "skills": "GROUP BY, ORDER BY",
+  "sql": "SELECT status, COUNT(*) AS n\nFROM transactions\nGROUP BY status\nORDER BY n DESC;"
+ },
+ {
+  "n": 2,
+  "level": "Level 1: filtering, grouping, joins",
+  "q": "What is the total successful amount, in rupees, per biller category?",
+  "skills": "join, SUM",
+  "sql": "SELECT b.category, SUM(t.amount_paise) / 100.0 AS success_rupees\nFROM transactions t\nJOIN billers b USING (biller_id)\nWHERE t.status = 'SUCCESS'\nGROUP BY b.category\nORDER BY success_rupees DESC;"
+ },
+ {
+  "n": 3,
+  "level": "Level 1: filtering, grouping, joins",
+  "q": "What is the failure rate (percent, 2 decimals) per channel?",
+  "skills": "conditional aggregation",
+  "sql": "SELECT channel,\n       ROUND(100.0 * SUM(status = 'FAILED') / COUNT(*), 2) AS failure_pct\nFROM transactions\nGROUP BY channel\nORDER BY failure_pct DESC;"
+ },
+ {
+  "n": 4,
+  "level": "Level 2: rates, subqueries, windows",
+  "q": "Which 3 billers (with at least 100 transactions) have the highest failure rate?",
+  "skills": "HAVING, LIMIT",
+  "sql": "SELECT biller_id,\n       COUNT(*) AS txns,\n       ROUND(100.0 * SUM(status = 'FAILED') / COUNT(*), 2) AS failure_pct\nFROM transactions\nGROUP BY biller_id\nHAVING COUNT(*) >= 100\nORDER BY failure_pct DESC, biller_id\nLIMIT 3;"
+ },
+ {
+  "n": 5,
+  "level": "Level 2: rates, subqueries, windows",
+  "q": "Show successful transactions per day with a running total",
+  "skills": "window SUM() OVER",
+  "sql": "SELECT d, n, SUM(n) OVER (ORDER BY d) AS running_total\nFROM (\n    SELECT date(txn_ts) AS d, COUNT(*) AS n\n    FROM transactions\n    WHERE status = 'SUCCESS'\n    GROUP BY date(txn_ts)\n)\nORDER BY d;"
+ },
+ {
+  "n": 6,
+  "level": "Level 2: rates, subqueries, windows",
+  "q": "For the biller with the highest failure rate, break down the failure reasons",
+  "skills": "subquery",
+  "sql": "SELECT failure_reason, COUNT(*) AS n\nFROM transactions\nWHERE status = 'FAILED'\n  AND biller_id = (\n      SELECT biller_id\n      FROM transactions\n      GROUP BY biller_id\n      HAVING COUNT(*) >= 100\n      ORDER BY 1.0 * SUM(status = 'FAILED') / COUNT(*) DESC, biller_id\n      LIMIT 1)\nGROUP BY failure_reason\nORDER BY n DESC, failure_reason;"
+ },
+ {
+  "n": 7,
+  "level": "Level 2: rates, subqueries, windows",
+  "q": "Which customers have at least 3 failed transactions?",
+  "skills": "HAVING",
+  "sql": "SELECT customer_id, COUNT(*) AS failed_txns\nFROM transactions\nWHERE status = 'FAILED'\nGROUP BY customer_id\nHAVING COUNT(*) >= 3\nORDER BY failed_txns DESC, customer_id;"
+ },
+ {
+  "n": 8,
+  "level": "Level 3: reconciliation and product analytics",
+  "q": "How many successful transactions have no settlement, by transaction date?",
+  "skills": "anti-join",
+  "sql": "SELECT date(t.txn_ts) AS txn_date, COUNT(*) AS unsettled\nFROM transactions t\nLEFT JOIN settlements s USING (txn_id)\nWHERE t.status = 'SUCCESS' AND s.txn_id IS NULL\nGROUP BY date(t.txn_ts)\nORDER BY txn_date;"
+ },
+ {
+  "n": 9,
+  "level": "Level 3: reconciliation and product analytics",
+  "q": "Which settled transactions have a different amount from the transaction?",
+  "skills": "join, comparison",
+  "sql": "SELECT t.txn_id, t.amount_paise, s.settled_amount_paise,\n       s.settled_amount_paise - t.amount_paise AS difference_paise\nFROM transactions t\nJOIN settlements s USING (txn_id)\nWHERE t.amount_paise <> s.settled_amount_paise\nORDER BY t.txn_id;"
+ },
+ {
+  "n": 10,
+  "level": "Level 3: reconciliation and product analytics",
+  "q": "What is the average settlement lag in days per category?",
+  "skills": "date arithmetic",
+  "sql": "SELECT b.category,\n       ROUND(AVG(julianday(s.settled_date) - julianday(date(t.txn_ts))), 2) AS avg_lag_days\nFROM transactions t\nJOIN settlements s USING (txn_id)\nJOIN billers b ON b.biller_id = t.biller_id\nGROUP BY b.category\nORDER BY b.category;"
+ },
+ {
+  "n": 11,
+  "level": "Level 3: reconciliation and product analytics",
+  "q": "Which 5 billers have the most complaints per 1,000 transactions?",
+  "skills": "left join, rate",
+  "sql": "SELECT t.biller_id,\n       COUNT(c.complaint_id) AS complaints,\n       COUNT(*) AS txns,\n       ROUND(1000.0 * COUNT(c.complaint_id) / COUNT(*), 2) AS complaints_per_1000\nFROM transactions t\nLEFT JOIN complaints c ON c.txn_id = t.txn_id\nGROUP BY t.biller_id\nORDER BY complaints_per_1000 DESC, t.biller_id\nLIMIT 5;"
+ },
+ {
+  "n": 12,
+  "level": "Level 3: reconciliation and product analytics",
+  "q": "Which biller has the highest successful amount in each category?",
+  "skills": "CTE, RANK()",
+  "sql": "WITH per_biller AS (\n    SELECT b.category, b.biller_id, SUM(t.amount_paise) AS success_paise\n    FROM transactions t\n    JOIN billers b USING (biller_id)\n    WHERE t.status = 'SUCCESS'\n    GROUP BY b.category, b.biller_id\n),\nranked AS (\n    SELECT *, RANK() OVER (PARTITION BY category ORDER BY success_paise DESC) AS rk\n    FROM per_biller\n)\nSELECT category, biller_id, success_paise\nFROM ranked\nWHERE rk = 1\nORDER BY category;"
+ },
+ {
+  "n": 13,
+  "level": "Level 3: reconciliation and product analytics",
+  "q": "For each month, how many customers were active, and how many of them transacted for the first time that month?",
+  "skills": "CTE, DISTINCT",
+  "sql": "WITH first_month AS (\n    SELECT customer_id, MIN(strftime('%Y-%m', txn_ts)) AS first_m\n    FROM transactions\n    GROUP BY customer_id\n),\nactive AS (\n    SELECT DISTINCT customer_id, strftime('%Y-%m', txn_ts) AS m\n    FROM transactions\n)\nSELECT a.m AS month,\n       COUNT(*) AS active_customers,\n       SUM(a.m = f.first_m) AS new_customers,\n       ROUND(100.0 * SUM(a.m = f.first_m) / COUNT(*), 1) AS new_pct\nFROM active a\nJOIN first_month f USING (customer_id)\nGROUP BY a.m\nORDER BY a.m;"
+ }
+]

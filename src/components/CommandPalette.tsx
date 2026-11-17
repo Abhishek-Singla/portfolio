@@ -20,12 +20,12 @@ function buildIndex(): Entry[] {
   const pages: [string, string, string][] = [
     ["Product lab", "/lab", "Interactive tools"], ["Three Lanes roadmap check", "/lab#lanes", "Tool"], ["Error-code translator", "/lab#errors", "Tool"],
     ["Transaction lifecycle", "/lab#lifecycle", "Tool"], ["Settlement timeline", "/lab#settlement", "Tool"], ["Payments SQL practice", "/lab#sql", "Tool"],
-    ["NEFT vs RTGS vs IMPS vs UPI", "/rails", "Payment rails comparison"], ["Glossary", "/glossary", "Bharat Connect terms"],
+    ["NEFT vs RTGS vs IMPS vs UPI", "/learn/payment-rails", "Payment rails comparison"], ["Glossary", "/glossary", "Bharat Connect terms"],
     ["Watch: ecosystem changes", "/watch", "Regulatory and ecosystem feed"], ["One-page summary", "/hire", "For recruiters"],
     ["Resume (print-friendly)", "/resume", "Full resume"], ["Product-focused resume", "/resume/relevant", "Shorter resume"],
     ["Ask about my work", "/ask", "AI assistant"], ["Privacy", "/privacy", "What the site collects"],
     ["Learn: Bharat Connect explained", "/learn", "Plain-language notes, five chapters"], ["Reconciliation playground", "/lab#recon", "Tool"],
-    ["Press and speaker kit", "/press", "Bios, topics and headshot"], ["What I'm working on", "/updates", "Dated updates and RSS"],
+    ["Press and speaker kit", "/press", "Bios, topics and headshot"], ["SQL playground", "/sql", "Run SQL on a synthetic payments database"], ["Dashboard demo", "/dashboard", "Failure rate by biller tier, settlement lag, complaints"], ["PRD builder", "/prd-builder", "Draft a PRD in markdown"], ["How I use AI as a PM", "/ai", "Workflows and rules"], ["Visuals", "/visuals", "Diagrams from my writing"], ["Corrections", "/corrections", "Report a mistake"], ["What I'm working on", "/updates", "Dated updates and RSS"],
   ];
   if (restrictedExplainersLive) pages.push(["Biller types: six payment journeys", "/billers", "Interactive explainer"], ["Settlement history: one cycle to ten", "/settlement-history", "Interactive timeline"]);
   pages.forEach(([t, h, hint]) => e.push({ title: t, hint, href: h, kind: "Page" }));

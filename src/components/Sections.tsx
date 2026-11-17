@@ -338,8 +338,12 @@ export function Explore() {
         <Reveal className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {[
             ["/lab", "Product lab", "Roadmap lane checker, error-code translator, lifecycle stepper, settlement timeline and SQL practice."],
-            ["/learn", "Bharat Connect explained", "Five plain-language chapters, checked against RBI and NBBL sources."],
-            ["/rails", "NEFT, RTGS, IMPS and UPI", "How India's four transfer rails are built, and which fits which job."],
+            ["/learn", "Bharat Connect explained", "Plain-language chapters on how Bharat Connect works, with official sources and my own notes kept apart."],
+            ["/learn/payment-rails", "NEFT, RTGS, IMPS and UPI", "How India's four transfer rails are built, and which fits which job."],
+            ["/sql", "SQL playground", "Run real SQL on a synthetic payments database, with 13 graded questions."],
+            ["/dashboard", "Dashboard demo", "A product dashboard on synthetic data: biller tiers, channels, settlement lag."],
+            ["/prd-builder", "PRD builder", "Answer a few prompts and get a draft PRD in markdown."],
+            ["/ai", "How I use AI", "The workflows and the rules that keep them honest."],
             ...(restrictedExplainersLive ? [
               ["/billers", "Six journeys in biller settings", "How a few settings decide a biller's payment journey."],
               ["/settlement-history", "One settlement a day to ten", "How settlement cycles grew from 2017 to 2026."],
@@ -430,12 +434,14 @@ export function Footer() {
         <a href="/glossary" className="hover:text-[var(--ink)]">Glossary</a>
         <a href="/watch" className="hover:text-[var(--ink)]">Watch</a>
         <a href="/learn" className="hover:text-[var(--ink)]">Learn</a>
-        <a href="/rails" className="hover:text-[var(--ink)]">Payment rails</a>
+        <a href="/sql" className="hover:text-[var(--ink)]">SQL playground</a>
+        <a href="/dashboard" className="hover:text-[var(--ink)]">Dashboard</a>
         <a href="/updates" className="hover:text-[var(--ink)]">Updates</a>
         <a href="/press" className="hover:text-[var(--ink)]">Press kit</a>
         <a href="/ask" className="hover:text-[var(--ink)]">Ask</a>
         <a href="/hire" className="hover:text-[var(--ink)]">One-page summary</a>
         <a href="/resume" className="hover:text-[var(--ink)]">Resume</a>
+        <a href="/corrections" className="hover:text-[var(--ink)]">Corrections</a>
         <a href="/privacy" className="hover:text-[var(--ink)]">Privacy</a>
       </nav>
       © {new Date().getFullYear()} {profile.name}

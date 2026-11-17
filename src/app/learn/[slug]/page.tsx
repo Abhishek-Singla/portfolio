@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import { Footer } from "@/components/Sections";
 import { ReadingTime, Toc } from "@/components/PageMeta";
+import UpdatedStamp from "@/components/UpdatedStamp";
 import { renderDoc, type LearnSlug } from "@/lib/learn";
 import { learnDocs } from "@/lib/learn-index";
 
@@ -42,6 +43,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         </nav>
         <h1 className="serif mt-4 text-4xl font-semibold leading-tight sm:text-5xl">{doc.title}</h1>
         <p className="mt-3"><ReadingTime words={doc.words} /></p>
+        <UpdatedStamp date={learnDocs[i].updated} className="mt-1" />
         {doc.headings.length > 1 && <Toc items={doc.headings} />}
 
         <article className="doc mt-10" dangerouslySetInnerHTML={{ __html: doc.html }} />

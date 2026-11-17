@@ -4,6 +4,7 @@ import { Footer } from "@/components/Sections";
 import { watch, profile } from "@/data";
 import { ReadingTime } from "@/components/PageMeta";
 import { Glossed } from "@/components/Glossed";
+import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
   title: "Bharat Connect watch | Abhishek Singla",
@@ -24,6 +25,7 @@ export default function Watch() {
           Developments I have followed in my LinkedIn posts and articles, each with the question it raises for a biller operating unit. Dates are as of my posts; for the official text, read the NPCI and RBI circulars.
         </p>
         <ReadingTime content={watch} className="mt-3" />
+        <UpdatedStamp date="18 Nov 2026" className="mt-1" />
         <ol className="mt-10 space-y-8 border-l border-[var(--line)] pl-6">
           {watch.map((w) => (
             <li key={w.title} className="relative">

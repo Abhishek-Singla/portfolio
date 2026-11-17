@@ -24,7 +24,11 @@ const sections: [string, string][] = [
 const pages: [string, string][] = [
   ["Product lab", "/lab"],
   ["Learn: BBPS explained", "/learn"],
-  ["NEFT, RTGS, IMPS, UPI", "/rails"],
+  ["NEFT, RTGS, IMPS, UPI", "/learn/payment-rails"],
+  ["SQL playground", "/sql"],
+  ["Dashboard demo", "/dashboard"],
+  ["PRD builder", "/prd-builder"],
+  ["How I use AI", "/ai"],
   ["Glossary", "/glossary"],
   ["Watch", "/watch"],
   ["Updates and RSS", "/updates"],
@@ -32,6 +36,7 @@ const pages: [string, string][] = [
   ["One-page summary", "/hire"],
   ["Ask about my work", "/ask"],
   ["Resume (print-friendly)", "/resume"],
+  ["Corrections", "/corrections"],
   ["Privacy", "/privacy"],
 ];
 

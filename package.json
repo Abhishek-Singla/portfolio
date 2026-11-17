@@ -14,7 +14,8 @@
     "marked": "^18.2.1",
     "next": "^15.5.29",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "sql.js": "^1.16.0"
   },
   "devDependencies": {
     "@types/node": "22.10.2",

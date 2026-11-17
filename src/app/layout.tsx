@@ -27,7 +27,7 @@ const personJsonLd = {
   jobTitle: "Product Owner",
   description: profile.intro,
   address: { "@type": "PostalAddress", addressLocality: "Bhubaneswar", addressRegion: "Odisha", addressCountry: "IN" },
-  sameAs: [profile.linkedin],
+  sameAs: [profile.linkedin, "https://github.com/Abhishek-Singla"],
   alumniOf: ["National Institute of Technology, Rourkela", "Chitkara University"],
   worksFor: { "@type": "Organization", name: "iServeU" },
 };

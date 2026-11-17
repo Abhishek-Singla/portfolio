@@ -30,6 +30,15 @@ export default function Lab() {
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--accent)]">Product lab</p>
         <h1 className="serif mt-3 text-4xl font-semibold sm:text-5xl">Tools for thinking about payments product</h1>
         <p className="mt-4 max-w-2xl text-[var(--muted)]">Small interactive pieces from my work on Bharat Connect. Nothing here stores or sends your input.</p>
+        <section aria-labelledby="more" className="mt-8">
+          <h2 id="more" className="sr-only">More hands-on pages</h2>
+          <ul className="grid gap-3 sm:grid-cols-3">
+            {[["/sql", "SQL playground", "Run real SQL on a synthetic payments database."], ["/dashboard", "Dashboard demo", "A product dashboard on the same data."], ["/prd-builder", "PRD builder", "Draft a PRD in markdown."]].map(([h, t, d]) => (
+              <li key={h}><a href={h} className="block h-full rounded-2xl border border-[var(--line)] p-4 hover:border-[var(--accent)]"><p className="font-semibold">{t}</p><p className="mt-1 text-sm text-[var(--muted)]">{d}</p></a></li>
+            ))}
+          </ul>
+          <p className="sr-only">More hands-on</p>
+        </section>
         <nav aria-label="Tools" className="mt-6 flex flex-wrap gap-3 text-sm">
           {tools.map((t) => <a key={t.id} href={`#${t.id}`} className="rounded-full border border-[var(--line)] px-4 py-1.5 hover:border-[var(--accent)]">{t.title}</a>)}
         </nav>

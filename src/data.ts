@@ -551,3 +551,18 @@ export const settlementHistory = {
   ] as [string, string][],
   caveat: "These figures come from NPCI circulars I read, the latest dated June 2026. NBBL's public pages are not consistent on the current number of cycles, so check the latest circular or ask your operating unit before relying on it.",
 };
+
+// Diagrams for the visuals page. Only items with published: true are shown.
+// Keep published false until the post that the diagram belongs to is live on LinkedIn.
+export const visuals = [
+  {
+    file: "bharat-connect-flow.png", svg: "bharat-connect-flow.svg", published: true,
+    title: "Bharat Connect: how a bill payment flows",
+    caption: "The customer pays through a customer operating unit. The request travels through the central unit to the biller operating unit and on to the biller, while funds move over payment rails. The message sequence runs fetch, payment, a pending check and net settlement.",
+    alt: "Diagram of a bill payment: Customer, then COU (customer side), then BBPCU (NPCI central unit), then BOU (biller side), then Biller. A biller-generated QR or payment link can start the payment at the COU. Below, funds move over payment rails such as UPI, cards, net banking and IMPS. A final box reads: message sequence, fetch, payment, pending check (402), net settlement by BBPCU.",
+    post: "https://www.linkedin.com/feed/update/urn:li:activity:7528291302803808256/",
+  },
+];
+
+// Public log of corrections. Add an item here when a reader reports a mistake you fix.
+export const corrections: { when: string; page: string; change: string }[] = [];

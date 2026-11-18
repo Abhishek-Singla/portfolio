@@ -9,7 +9,7 @@ export async function POST(req: Request) {
   const key = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO;
   if (!key || !to) return Response.json({ error: "not_configured" }, { status: 503 });
-  if (!allow(`contact:${clientIp(req)}`, 4, 60 * 60 * 1000)) return Response.json({ error: "rate_limited" }, { status: 429 });
+  if (!(await allow(`contact:${clientIp(req)}`, 4, 60 * 60 * 1000))) return Response.json({ error: "rate_limited" }, { status: 429 });
 
   let body: Record<string, unknown>;
   try { body = await req.json(); } catch { return Response.json({ error: "bad_request" }, { status: 400 }); }

@@ -29,6 +29,9 @@ const pages: [string, string][] = [
   ["Dashboard demo", "/dashboard"],
   ["PRD builder", "/prd-builder"],
   ["How I use AI", "/ai"],
+  ["Quiz", "/quiz"],
+  ["Flashcards", "/flashcards"],
+  ["Worked examples", "/examples"],
   ["Glossary", "/glossary"],
   ["Watch", "/watch"],
   ["Updates and RSS", "/updates"],
@@ -36,6 +39,7 @@ const pages: [string, string][] = [
   ["One-page summary", "/hire"],
   ["Ask about my work", "/ask"],
   ["Resume (print-friendly)", "/resume"],
+  ["Accessibility", "/accessibility"],
   ["Corrections", "/corrections"],
   ["Privacy", "/privacy"],
 ];

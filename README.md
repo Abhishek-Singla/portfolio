@@ -40,3 +40,15 @@ See `.env.example`. Anything left unset keeps that feature off:
 - `restrictedExplainersLive` in `src/data.ts` switches the biller-types and settlement-history pages on or off everywhere.
 - `public/resume*.pdf` contain a phone number. Keep this repository private unless you replace them.
 - The Learn hub text comes from the public `bbps-explained` repository and is released under the MIT licence.
+
+## Tests and CI
+
+```bash
+npm run build && npm start -- -p 3000   # in one terminal
+npm test                                 # in another: smoke tests on every page, link, file and header
+npm run check:links                      # external links (LinkedIn and similar are reported as skipped)
+```
+
+Set `BLOCKED_TERMS="term one,term two"` in your environment to make the tests fail if any of those words ever appear on a page. Keep that list out of the repository.
+
+`docs/ci-workflow.yml` is a GitHub Actions workflow that runs type-checking, the build and the smoke tests on every push, plus a weekly link check. GitHub only accepts workflow files from a login that has the `workflow` permission. To switch it on, run `gh auth refresh -s workflow`, then copy the file to `.github/workflows/ci.yml` and push.

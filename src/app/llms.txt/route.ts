@@ -36,6 +36,8 @@ export function GET() {
     `- [SQL playground](${site}/sql): run SQL against a synthetic payments database`,
     `- [Dashboard demo](${site}/dashboard): a product dashboard on synthetic data`,
     `- [PRD builder](${site}/prd-builder): draft a product requirements document in markdown`,
+    `- [Worked examples](${site}/examples): finished user stories, a Gherkin spec and UAT test cases for a bill fetch and pay flow`,
+    `- [Quiz](${site}/quiz) and [flashcards](${site}/flashcards): test yourself on Bharat Connect`,
     "",
     "## Open-source repositories",
     ...projects.map((p) => `- [${p.name}](https://github.com/Abhishek-Singla/${p.repo}): ${p.blurb}`),

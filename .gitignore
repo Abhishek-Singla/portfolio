@@ -23,3 +23,6 @@ Thumbs.db
 # hosting and local tooling
 .vercel/
 .claude/
+
+# local drafts (not published)
+drafts/

@@ -4,6 +4,7 @@ import { Footer } from "@/components/Sections";
 import { ReadingTime } from "@/components/PageMeta";
 import { renderDoc } from "@/lib/learn";
 import { learnDocs } from "@/lib/learn-index";
+import { quiz } from "@/content/quiz";
 
 export const metadata: Metadata = {
   title: "Bharat Connect (BBPS) explained | Abhishek Singla",
@@ -40,6 +41,11 @@ export default function Learn() {
             </li>
           ))}
         </ol>
+
+        <p className="mt-6 flex flex-wrap gap-3 text-sm">
+          <a href="/quiz" className="rounded-full border border-[var(--line)] px-4 py-1.5 hover:border-[var(--accent)]">Test yourself: {quiz.length}-question quiz</a>
+          <a href="/flashcards" className="rounded-full border border-[var(--line)] px-4 py-1.5 hover:border-[var(--accent)]">Glossary flashcards</a>
+        </p>
 
         <section className="mt-12 grid gap-6 md:grid-cols-2">
           <div>

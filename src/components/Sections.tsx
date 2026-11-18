@@ -313,7 +313,7 @@ export function Templates() {
   return (
     <section className={wrap}>
       <Head id="templates" kicker="Free templates" title="PM templates you can copy" />
-      <p className="-mt-6 mb-10 max-w-xl text-sm text-[var(--muted)]">Blank and generic, with no company or customer data. Fill in the placeholders and delete the guidance lines.</p>
+      <p className="-mt-6 mb-10 max-w-xl text-sm text-[var(--muted)]">Blank and generic, with no company or customer data. Fill in the placeholders and delete the guidance lines. Want to see them filled in? <a href="/examples" className="text-[var(--accent)] hover:underline">See worked examples</a>, or draft a PRD with the <a href="/prd-builder" className="text-[var(--accent)] hover:underline">PRD builder</a>.</p>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {templates.map(([n, f, d]) => (
           <Reveal key={f}>
@@ -441,6 +441,8 @@ export function Footer() {
         <a href="/ask" className="hover:text-[var(--ink)]">Ask</a>
         <a href="/hire" className="hover:text-[var(--ink)]">One-page summary</a>
         <a href="/resume" className="hover:text-[var(--ink)]">Resume</a>
+        <a href="/quiz" className="hover:text-[var(--ink)]">Quiz</a>
+        <a href="/accessibility" className="hover:text-[var(--ink)]">Accessibility</a>
         <a href="/corrections" className="hover:text-[var(--ink)]">Corrections</a>
         <a href="/privacy" className="hover:text-[var(--ink)]">Privacy</a>
       </nav>

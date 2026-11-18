@@ -53,6 +53,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           <a className="text-[var(--accent)] hover:underline" href="https://github.com/Abhishek-Singla/bbps-explained/issues" target="_blank" rel="noreferrer">github.com/Abhishek-Singla/bbps-explained</a>. Official documents win over these notes.
         </p>
 
+        <p className="mt-4 text-sm"><a className="text-[var(--accent)] hover:underline" href="https://github.com/Abhishek-Singla/bbps-explained/discussions" target="_blank" rel="noreferrer">Discuss this chapter on GitHub</a> <span className="text-[var(--muted)]">(questions, corrections and ideas are welcome)</span></p>
+
         <nav aria-label="Chapters" className="mt-10 grid gap-4 sm:grid-cols-2">
           {prev ? (
             <a href={`/learn/${prev.slug}`} className="rounded-2xl border border-[var(--line)] p-4 hover:border-[var(--accent)]"><span className="text-xs text-[var(--muted)]">Previous</span><span className="serif mt-1 block font-semibold">{title(prev.slug)}</span></a>

@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Search } from "lucide-react";
 import { work, glossary, writing, templates, projects, restrictedExplainersLive } from "@/data";
 import { learnDocs } from "@/lib/learn-index";
+import { quiz } from "@/content/quiz";
 
 type Entry = { title: string; hint: string; href: string; kind: string; external?: boolean };
 
@@ -25,7 +26,7 @@ function buildIndex(): Entry[] {
     ["Resume (print-friendly)", "/resume", "Full resume"], ["Product-focused resume", "/resume/relevant", "Shorter resume"],
     ["Ask about my work", "/ask", "AI assistant"], ["Privacy", "/privacy", "What the site collects"],
     ["Learn: Bharat Connect explained", "/learn", "Plain-language notes, five chapters"], ["Reconciliation playground", "/lab#recon", "Tool"],
-    ["Press and speaker kit", "/press", "Bios, topics and headshot"], ["SQL playground", "/sql", "Run SQL on a synthetic payments database"], ["Dashboard demo", "/dashboard", "Failure rate by biller tier, settlement lag, complaints"], ["PRD builder", "/prd-builder", "Draft a PRD in markdown"], ["How I use AI as a PM", "/ai", "Workflows and rules"], ["Visuals", "/visuals", "Diagrams from my writing"], ["Corrections", "/corrections", "Report a mistake"], ["What I'm working on", "/updates", "Dated updates and RSS"],
+    ["Press and speaker kit", "/press", "Bios, topics and headshot"], ["SQL playground", "/sql", "Run SQL on a synthetic payments database"], ["Dashboard demo", "/dashboard", "Failure rate by biller tier, settlement lag, complaints"], ["PRD builder", "/prd-builder", "Draft a PRD in markdown"], ["How I use AI as a PM", "/ai", "Workflows and rules"], ["Visuals", "/visuals", "Diagrams from my writing"], ["Corrections", "/corrections", "Report a mistake"], ["Bharat Connect quiz", "/quiz", `${quiz.length} questions with explanations`], ["Glossary flashcards", "/flashcards", "Flip through 20 terms"], ["Worked examples", "/examples", "User stories, Gherkin spec, UAT cases"], ["Duplicate-payment simulator", "/lab#duplicates", "Tool"], ["Accessibility statement", "/accessibility", "What was tested and known gaps"], ["What I'm working on", "/updates", "Dated updates and RSS"],
   ];
   if (restrictedExplainersLive) pages.push(["Biller types: six payment journeys", "/billers", "Interactive explainer"], ["Settlement history: one cycle to ten", "/settlement-history", "Interactive timeline"]);
   pages.forEach(([t, h, hint]) => e.push({ title: t, hint, href: h, kind: "Page" }));

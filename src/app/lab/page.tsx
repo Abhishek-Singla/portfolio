@@ -4,6 +4,7 @@ import { Footer } from "@/components/Sections";
 import { ThreeLanes, ErrorTranslator, Lifecycle, SettlementTimeline } from "@/components/Lab";
 import SqlPractice from "@/components/SqlPractice";
 import ReconPlayground from "@/components/ReconPlayground";
+import DuplicateSim from "@/components/DuplicateSim";
 
 export const metadata: Metadata = {
   title: "Product lab | Abhishek Singla",
@@ -18,6 +19,7 @@ const tools = [
   { id: "errors", title: "Error-code translator", intro: "The error-dictionary project made hands-on.", C: ErrorTranslator },
   { id: "lifecycle", title: "Transaction lifecycle", intro: "Step through a Bharat Connect payment, including the pending path and status checks.", C: Lifecycle },
   { id: "settlement", title: "Settlement timeline", intro: "How settlement cycles through the day, and what each cycle does.", C: SettlementTimeline },
+  { id: "duplicates", title: "Duplicate-payment simulator", intro: "Retry a pending payment with the same reference or a new one, and see which becomes a second payment.", C: DuplicateSim },
   { id: "recon", title: "Reconciliation playground", intro: "Find duplicates, missing settlements and amount mismatches between two files, in your browser.", C: ReconPlayground },
   { id: "sql", title: "Payments SQL practice", intro: "Graded SQL questions on a synthetic payments database, with solutions you can reveal.", C: SqlPractice },
 ];

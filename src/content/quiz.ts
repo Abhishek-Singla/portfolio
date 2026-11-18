@@ -1,0 +1,96 @@
+// Quiz questions drawn from the Learn chapters. `answer` is the index of the correct option.
+export type Question = { q: string; options: string[]; answer: number; why: string; chapter: string };
+
+export const quiz: Question[] = [
+  {
+    q: "Which organisation is the authorised central unit that operates Bharat Connect (BBPS)?",
+    options: ["The Reserve Bank of India", "NPCI Bharat BillPay Limited (NBBL)", "A sponsor bank", "A technology service provider"],
+    answer: 1,
+    why: "NBBL is the authorised central unit. It sets operational, technical and business standards and undertakes clearing and settlement (RBI Directions 2024, para 5(a)).",
+    chapter: "ecosystem",
+  },
+  {
+    q: "What does a Biller Operating Unit (BOU) do?",
+    options: ["Gives customers an app to pay bills", "Onboards billers and settles funds on their behalf", "Certifies agent institutions", "Runs the central complaint portal"],
+    answer: 1,
+    why: "A BOU onboards billers onto BBPS for bill collection, directly or through aggregators, and settles funds on behalf of billers. Giving customers an interface is the job of a COU.",
+    chapter: "ecosystem",
+  },
+  {
+    q: "Can funds in the system flow through a technology service provider?",
+    options: ["Yes, if it is certified", "Yes, but only below a limit", "No, never", "Only for non-bank operating units"],
+    answer: 2,
+    why: "No funds in the system may flow through a technology service provider (RBI Directions 2024, para 6(a)(5)).",
+    chapter: "ecosystem",
+  },
+  {
+    q: "According to the RBI Directions, what must happen before payment is initiated?",
+    options: ["The biller must approve the customer", "The bill must be fetched", "The customer must register a complaint", "The sponsor bank must pre-fund the account"],
+    answer: 1,
+    why: "A bill must be fetched before payment is initiated. For prepaid services, the customer-biller relationship is validated through the platform instead (para 4(d)).",
+    chapter: "fetch-and-pay",
+  },
+  {
+    q: "What does every transaction carry from the payment initiation stage, and what is it used for?",
+    options: ["A card token, used for refunds", "A BBPS reference number, used to raise and resolve disputes", "A biller ID, used for settlement files", "A QR code, used for receipts"],
+    answer: 1,
+    why: "Every transaction carries a BBPS reference number from payment initiation, and the same number is used to raise and resolve disputes (para 6(a)(4) and 8(ii)).",
+    chapter: "fetch-and-pay",
+  },
+  {
+    q: "Who issues a biller's unique ID?",
+    options: ["The biller operating unit", "The customer operating unit", "The central unit, after approving the biller", "The biller's own bank"],
+    answer: 2,
+    why: "The BOU sends an approval request to the central unit on the biller's behalf. After approval, the central unit issues the unique biller ID.",
+    chapter: "onboarding",
+  },
+  {
+    q: "On NBBL's biller FAQ, within how many calendar days should biller activation be completed?",
+    options: ["7 days", "14 days", "30 days", "60 days"],
+    answer: 3,
+    why: "Activation is to be completed within 60 calendar days. The 7 days is for the consent letter, 14 days is the master-data refresh for existing categories, and 30 days is the delisting notice.",
+    chapter: "onboarding",
+  },
+  {
+    q: "How do non-bank operating units settle?",
+    options: ["Directly with RBI", "Through a sponsor bank, holding an escrow account used only for BBPS", "Through the biller's bank", "They do not settle; the central unit does it all"],
+    answer: 1,
+    why: "Non-bank operating units settle through a sponsor bank (para 4(h)) and must hold an escrow account with a scheduled commercial bank, used only for BBPS (para 7(i)).",
+    chapter: "settlement-and-reconciliation",
+  },
+  {
+    q: "Which complaint message raises a new complaint?",
+    options: ["501", "503", "506", "507"],
+    answer: 0,
+    why: "From my post on how the network is built: 501 raises a complaint, 502 re-assigns it, 503 re-opens it, 506 checks status, 507 closes it and 508 alerts a status change.",
+    chapter: "complaints",
+  },
+  {
+    q: "What is the name of NBBL's dispute management portal?",
+    options: ["BOAT", "CertPlay", "Canvas", "Biller MDM"],
+    answer: 2,
+    why: "Canvas is NBBL's central dispute management portal. BOAT is the biller onboarding and testing portal, and CertPlay is the certification portal for operating units.",
+    chapter: "complaints",
+  },
+  {
+    q: "In the failure-patterns chapter, which intervention targets bill fetch timeouts without any biller-side change?",
+    options: ["A longer fixed timeout for every biller", "Biller reliability tiering with adaptive timeouts and a cached-bill fallback", "Retrying every fetch three times", "Asking billers to upgrade their APIs"],
+    answer: 1,
+    why: "Treating all billers identically is the product failure. Profiling each biller's response times, tiering them, and applying tier-specific timeouts and fallbacks needs no biller-side change.",
+    chapter: "failure-patterns",
+  },
+  {
+    q: "Which payment rail settles each payment individually, in real time, with no netting?",
+    options: ["NEFT", "RTGS", "IMPS", "UPI"],
+    answer: 1,
+    why: "RTGS settles each payment individually between banks' accounts at RBI. NEFT settles in batches, and IMPS and UPI use NPCI's real-time switch with net settlement afterwards.",
+    chapter: "payment-rails",
+  },
+  {
+    q: "Which pair of rails is run by NPCI?",
+    options: ["NEFT and RTGS", "RTGS and IMPS", "IMPS and UPI", "NEFT and UPI"],
+    answer: 2,
+    why: "IMPS and UPI are NPCI's real-time rails. NEFT and RTGS are run by RBI.",
+    chapter: "payment-rails",
+  },
+];

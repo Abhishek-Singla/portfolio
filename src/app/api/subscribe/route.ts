@@ -11,7 +11,7 @@ export async function GET() {
 
 export async function POST(req: Request) {
   if (!configured()) return Response.json({ error: "not_configured" }, { status: 503 });
-  if (!allow(`sub:${clientIp(req)}`, 5, 60 * 60 * 1000)) return Response.json({ error: "rate_limited" }, { status: 429 });
+  if (!(await allow(`sub:${clientIp(req)}`, 5, 60 * 60 * 1000))) return Response.json({ error: "rate_limited" }, { status: 429 });
 
   let body: { email?: unknown; website?: unknown };
   try { body = await req.json(); } catch { return Response.json({ error: "bad_request" }, { status: 400 }); }

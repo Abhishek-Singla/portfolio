@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 5 * * 1" # weekly external link check, Mondays 05:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run build
+      - name: Start the site
+        run: |
+          npm start -- -p 3000 &
+          for i in $(seq 1 40); do curl -fs http://127.0.0.1:3000/ > /dev/null && break; sleep 2; done
+      - name: Smoke tests
+        run: npm test
+        env:
+          BASE_URL: http://127.0.0.1:3000
+          # Optional secret: comma-separated terms that must never appear on any page.
+          BLOCKED_TERMS: ${{ secrets.BLOCKED_TERMS }}
+      - name: External link check (weekly and on demand)
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: npm run check:links
+        env:
+          BASE_URL: http://127.0.0.1:3000

@@ -16,7 +16,7 @@ export async function POST(req: Request) {
   if (!process.env.ANTHROPIC_API_KEY) return Response.json({ error: "not_configured" }, { status: 503 });
 
   // Per-visitor and overall daily limits keep cost and abuse in check.
-  if (!allow(`ask:${clientIp(req)}`, 8, 60 * 60 * 1000) || !allow("ask:all", 300, 24 * 60 * 60 * 1000)) {
+  if (!(await allow(`ask:${clientIp(req)}`, 8, 60 * 60 * 1000)) || !(await allow("ask:all", 300, 24 * 60 * 60 * 1000))) {
     return Response.json({ error: "rate_limited" }, { status: 429 });
   }
 

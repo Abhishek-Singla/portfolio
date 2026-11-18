@@ -29,7 +29,6 @@ export const work = [
       "40% fewer product-related support tickets within one quarter of rollout",
       "Training sessions reaching the full sales and support organisation",
       "Quarterly error dictionary review tied to the top ticket categories",
-      "+20 points agent NPS through clearer product communication",
     ],
     skills: ["Product Development", "Go-to-Market Strategy", "Stakeholder Management", "Agile"],
     lesson: "The surface area of a product is bigger than its feature list. Every string of text is a product decision.",
@@ -60,7 +59,6 @@ export const work = [
     result: [
       "The primary tool for weekly product and engineering leadership reviews",
       "Biller API degradation caught within hours instead of after incident escalation",
-      "Supported a 20% NPS improvement within one quarter by linking product data to satisfaction trends",
       "30% better documentation retrieval across the team",
     ],
     skills: ["Dashboard Design", "Data Analysis", "Confluence", "Agile"],
@@ -185,13 +183,13 @@ export const stats = [
   { value: "80%", label: "First-time-right deployments", note: "zero rollback incidents" },
   { value: "40%", label: "Fewer support tickets", note: "plain-language agent errors" },
   { value: "15%", label: "Lower transaction failures", note: "competitor benchmarking" },
-  { value: "20%", label: "NPS uplift in one quarter", note: "closed-loop feedback" },
+  { value: "20%", label: "Lower UAT failure rates", note: "across BBPS releases" },
 ];
 
 export const impact = [
   ["Deployment quality", "80% First-Time-Right rate with zero rollback incidents, coordinating offshore engineering and QA."],
   ["Support load", "40% drop in support tickets after rewriting agent-facing error messages from engineering codes into plain language."],
-  ["Customer sentiment", "20% NPS uplift in a single quarter by turning feedback into backlog and validating outcomes."],
+  ["Release quality", "20% lower UAT failure rates across BBPS releases."],
   ["Transaction reliability", "15% reduction in failure rate from competitor benchmarking and prioritised fixes."],
   ["Decision dashboard", "Real-time dashboard tracking 5+ KPIs, used daily by product and engineering leadership."],
   ["Knowledge base", "Standardised PRD, BRD and sprint templates in Confluence, lifting retrieval by 30%."],
@@ -221,7 +219,6 @@ export const experience = [
     meta: "Internship · Bhubaneswar",
     period: "May 2024 – Aug 2024",
     points: [
-      "Delivered a 20% NPS improvement in one quarter through closed-loop requirements management: capturing insights, translating them to backlog and validating outcomes post-release.",
       "Supported roadmap development and sprint backlog prioritisation alongside senior PMs.",
       "Conducted user feedback analysis and customer journey evaluations to surface enhancement opportunities.",
       "Facilitated alignment between business, engineering and QA to resolve dependencies and keep sprints moving.",
@@ -463,7 +460,7 @@ export const press = {
   bios: [
     ["Short", "Abhishek Singla is a product manager working on Bharat Connect (formerly BBPS), India's national bill payment platform, at iServeU. He owns biller onboarding, settlement and reconciliation work and writes about how bill payments fail and how product teams can fix them. He holds an MBA from NIT Rourkela."],
     ["Medium", "Abhishek Singla is a product manager working on Bharat Connect (formerly BBPS), India's national bill payment platform, at iServeU in Bhubaneswar. He owns biller onboarding, settlement and reconciliation product work, from requirements and PRDs through UAT to release. His results include an 80% first-time-right deployment rate, 40% fewer product-related support tickets and a 15% lower transaction failure rate. He writes on LinkedIn about how bill payments fail at the last mile and what product teams can do about it, and publishes open-source teaching material on GitHub. He holds an MBA from NIT Rourkela and a B.E. in Computer Science from Chitkara University."],
-    ["Long", "Abhishek Singla is a product manager working on Bharat Connect (formerly BBPS), India's national bill payment platform, at iServeU in Bhubaneswar. He owns biller onboarding, settlement and reconciliation product work for billers and partners, from requirements and PRDs through UAT to release, with NPCI and RBI compliance in view. His results include an 80% first-time-right deployment rate with zero rollbacks, 40% fewer product-related support tickets, a 15% lower transaction failure rate and a 20% NPS uplift in one quarter. He came to payments from an unusual angle: a B.E. in Computer Science from Chitkara University, an MBA in Finance and Marketing from NIT Rourkela, and an India Post Payments Bank internship that showed him how much payments product work is about recovering from failure, not shipping features. He writes on LinkedIn about how Bharat Connect works at the operating-unit layer, the failure patterns product teams miss, and designing for the agents who serve most customers. He also publishes open-source teaching material on GitHub, including plain-language BBPS notes, a reconciliation demo and a payments SQL practice set, and uses AI tools in product delivery with a named human owner for every draft."],
+    ["Long", "Abhishek Singla is a product manager working on Bharat Connect (formerly BBPS), India's national bill payment platform, at iServeU in Bhubaneswar. He owns biller onboarding, settlement and reconciliation product work for billers and partners, from requirements and PRDs through UAT to release, with NPCI and RBI compliance in view. His results include an 80% first-time-right deployment rate with zero rollbacks, 40% fewer product-related support tickets, a 15% lower transaction failure rate and 20% lower UAT failure rates. He came to payments from an unusual angle: a B.E. in Computer Science from Chitkara University, an MBA in Finance and Marketing from NIT Rourkela, and an India Post Payments Bank internship that showed him how much payments product work is about recovering from failure, not shipping features. He writes on LinkedIn about how Bharat Connect works at the operating-unit layer, the failure patterns product teams miss, and designing for the agents who serve most customers. He also publishes open-source teaching material on GitHub, including plain-language BBPS notes, a reconciliation demo and a payments SQL practice set, and uses AI tools in product delivery with a named human owner for every draft."],
   ] as [string, string][],
   topics: [
     ["How Bharat Connect works at the BOU layer", "The four-party network, message families, reference IDs and where a biller operating unit's product surface sits."],

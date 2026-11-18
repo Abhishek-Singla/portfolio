@@ -23,7 +23,7 @@ export const work = [
     slug: "cross-functional-enablement",
     tag: "Go-to-market · Agent UX",
     role: "Product Manager",
-    problem: "About 40% of product-related support tickets came from agent-facing UX issues: raw engineering error codes shown to non-technical BC agents.",
+    problem: "Product-related support tickets were high because sales and support teams could not confidently explain new releases and agent-facing errors to non-technical BC agents.",
     did: "Led a cross-functional initiative: a maintained human-readable error classification dictionary, enablement sessions for sales and support, structured agent-facing communication for new releases, and a closed-loop process linking ticket analysis to the product backlog.",
     result: [
       "40% fewer product-related support tickets within one quarter of rollout",
@@ -275,7 +275,7 @@ export const learning = "In progress: Data Analytics (SQL), Power BI, Financial 
 // Deep-dive detail for each project, keyed by slug. Drawn from your Upwork portfolio write-ups.
 export const workDetails: Record<string, { context: string; approach: string[]; built: string[]; different?: string }> = {
   "cross-functional-enablement": {
-    context: "Agent-facing screens showed raw engineering error codes to non-technical BC agents. About 40% of product-related support tickets traced back to that one issue.",
+    context: "Sales and support teams had to explain new releases and raw engineering error codes to non-technical BC agents, and many product-related support tickets came from that gap. Cross-functional training closed it: product-related tickets fell by 40%.",
     approach: [
       "Analysed ticket categories and found agent-facing UX was the largest single source.",
       "Built a maintained, human-readable error classification dictionary.",

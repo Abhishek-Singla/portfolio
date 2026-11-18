@@ -20,7 +20,7 @@ export const resume = {
         "Wrote PRDs and user stories with acceptance criteria, and prioritised the backlog in Jira; ran sprint planning, stand-ups, reviews and retrospectives with engineering and QA.",
         "Used user personas, Figma prototypes and usability tests to inform roadmap priorities and product decisions, and competitor benchmarking to recommend efficiency improvements.",
         "Worked with Tech and QA to align requirements, review code outputs and keep decisions feasible; tracked defects and coordinated UAT with internal and external stakeholders before each release.",
-        "Outcomes across BBPS releases: 80% first-time-right deployment rate; 40% fewer product-related support tickets after rewriting agent-facing error messages into plain language; 20% lower UAT failure rates.",
+        "Outcomes across BBPS releases: 80% first-time-right deployment rate; 40% fewer product-related support tickets after cross-functional training for sales and support teams; 20% lower UAT failure rates.",
         "Presented PowerPoint decks to senior stakeholders in monthly leadership meetings, quarterly partner reviews and bimonthly biller reviews; escalated risks and blockers to the right owners early.",
         "Wrote user guides, release notes and Confluence documentation for internal teams, clients and partners.",
         "After a data loss, rebuilt and verified BBPS data for 8 data sets across Oct 2025 to Jul 2026, with 70 deep checks passed and no failures.",

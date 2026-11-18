@@ -181,14 +181,14 @@ export const certifications = [
 
 export const stats = [
   { value: "80%", label: "First-time-right deployments", note: "zero rollback incidents" },
-  { value: "40%", label: "Fewer support tickets", note: "plain-language agent errors" },
+  { value: "40%", label: "Fewer support tickets", note: "cross-functional training" },
   { value: "15%", label: "Lower transaction failures", note: "competitor benchmarking" },
   { value: "20%", label: "Lower UAT failure rates", note: "across BBPS releases" },
 ];
 
 export const impact = [
   ["Deployment quality", "80% First-Time-Right rate with zero rollback incidents, coordinating offshore engineering and QA."],
-  ["Support load", "40% drop in support tickets after rewriting agent-facing error messages from engineering codes into plain language."],
+  ["Support load", "40% fewer product-related support tickets after cross-functional training for sales and support teams."],
   ["Release quality", "20% lower UAT failure rates across BBPS releases."],
   ["Transaction reliability", "15% reduction in failure rate from competitor benchmarking and prioritised fixes."],
   ["Decision dashboard", "Real-time dashboard tracking 5+ KPIs, used daily by product and engineering leadership."],
@@ -205,7 +205,7 @@ export const experience = [
       "Worked on BBPS (Bharat Connect) infrastructure as a BOU, owning product specifications across bill fetch flows, transaction lifecycle management, agent UX and reconciliation.",
       "Achieved an 80% First-Time-Right build rate with zero rollback incidents by coordinating structured requirements delivery with offshore engineering and QA.",
       "Reduced transaction failure rates by 15% through tier-based timeout logic, validation monitoring and competitor benchmarking.",
-      "Cut support ticket volume by 40% by rewriting agent-facing error messages from engineering codes into plain language.",
+      "Cut product-related support tickets by 40% after cross-functional training for sales and support teams.",
       "Authored PRDs and BRDs across BBPS integrations, API flows and recurring payments architecture, with full traceability to deployment in Jira.",
       "Maintained working knowledge of NPCI BBPS operational guidelines, RBI payment system directives and PMLA compliance requirements.",
       "Built a real-time KPI dashboard tracking 5+ metrics (FTR, uptime, ticket volume, NPS) used by product and engineering leadership for sprint prioritisation.",

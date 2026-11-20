@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { profile } from "@/data";
 import CommandPalette from "@/components/CommandPalette";
 
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <CommandPalette />
         {process.env.VERCEL ? <Analytics /> : null}
+        {process.env.VERCEL ? <SpeedInsights /> : null}
       </body>
     </html>
   );

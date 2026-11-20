@@ -38,3 +38,10 @@ jobs:
         run: npm run check:links
         env:
           BASE_URL: http://127.0.0.1:3000
+
+  privacy-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan for personal data and secrets
+        run: python .github/scripts/check_repo.py
